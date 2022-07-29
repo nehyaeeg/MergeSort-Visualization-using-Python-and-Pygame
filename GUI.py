@@ -25,11 +25,8 @@ class DrawInfo:
         self.lst = lst
         self.col_list = [self.BAR_SHADES[(index)%3] for index,_ in enumerate(lst)] # color assignment.
         self.lst_wrapper = lst_wrapper
-        
         self.window =pygame.display.set_mode((width, height)) # main window
-        
         pygame.display.set_caption("Navid's Sorting Visualization") # title
-        
         font = pygame.font.Font('freesansbold.ttf', 20)
         text = font.render('Press M for Merge Sort  B for Bubble Sort', True, self.GREEN, self.WHITE)
         textRect = text.get_rect()
@@ -43,23 +40,15 @@ class DrawInfo:
         # bounds for hight of histograms bars
         self.max_val = max(lst)
         self.min_val = min(lst)
-        
         self.bar_width = ( self.width- DrawInfo.PERIPHERAL_PADDING) // len(lst) # width of each bar
-        
         self.bar_height_scale_factor = ( self.height - DrawInfo.TOP_PAD ) // (self.max_val + self.min_val) # for scaling bar height        
         self.start_x = DrawInfo.PERIPHERAL_PADDING // 2
         
         
     def show_text(self):
         font = pygame.font.Font('freesansbold.ttf', 20)
- 
-       
         text = font.render('Press M for Merge Sort  B for Bubble Sort', True, self.GREEN, self.WHITE)
-        
-        
         textRect = text.get_rect()
-        
-        
         textRect.center = (300, 20)
         self.window.blit(text, textRect)
         
